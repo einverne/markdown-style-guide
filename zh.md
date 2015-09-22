@@ -22,7 +22,7 @@ description: 在线 Markdown 书写风格指南
 
 -   易读
 
--   可移植性: 通过不同的实现，产生相同的输出或者更好的输出。
+-   可移植性: 通过不同的实现，产生相同的输出或者更好的输出文本。
 
     移植性测试在 [Markdown Test Suite](https://github.com/karlcow/markdown-testsuite) 开展。
 
@@ -30,7 +30,7 @@ description: 在线 Markdown 书写风格指南
 
 -   友好的文件差异对比
 
--   容易记忆，和被编辑器实现
+-   容易记忆，容易被编辑器实现
 
 -   从不同的选择中抽取基本原理
 
@@ -72,8 +72,8 @@ description: 在线 Markdown 书写风格指南
 
 The first option header that appears in this text is the default value.
 
-比如， 如果自动换行有三种风格，我们会给出关键词 `wrap`,
-并且给每一种风格一种名字：
+比如， 如果自动换行 `wrap` 有三种风格，我们会给出关键词 `wrap`,
+并且给每一种风格一种名字，比如：
 
     # Option wrap:space
     # Option wrap:no
@@ -136,13 +136,13 @@ Miguel de Icaza (GNOME, Mono) 已经提出一份简短的风格指南
 
 #### 文件名 {#file-name}
 
-Prefer to base the file name on the top-header level:
+文件名建议使用如下的风格:
 
 - 用小写代替大写
 - 把开头 `the`, `a`, `an` 除去
 - 用连字符代替标点和空格
-- 用一个连字符代替连续多个连字符
-- 不在前后使用连字符
+- 用一个连字符代替连续多个连字符，当多个连字符出现时，只使用一个
+- 不在文件名前后使用连字符
 
 建议使用:
 
@@ -156,7 +156,7 @@ Prefer to base the file name on the top-header level:
 
     -file-name-.md
 
-解释: 为何不使用下划线和驼峰大小写? 连字符是现在最流行的网址分隔符，并且 markdown 文件在上下文中经常使用:
+解释: 为何不使用下划线和驼峰大小写？连字符是现在最流行的网址分隔符，并且 Markdown 文件在上下文中经常使用:
 
 - 可能在同一个项目中有连字符分割的HTML文件使用Markdown相同的目录。
 - 文件名会被直接使用到 URL 中. 比如: GitHub blobs.
@@ -215,10 +215,9 @@ Prefer to base the file name on the top-header level:
 
 -   容易编辑
 
--   通常不是必须的usually not necessary if you 使用 `wrap:inner-sentence` or `wrap:sentence`
+-   通常不是必须的，如果使用 `wrap:inner-sentence` or `wrap:sentence`
 
--   `space-sentence:2` gives a false sense of readability
-    as it is ignored on the HTML output
+-   `space-sentence:2` 对可读性造成一种错误的感觉，因为忽略了输出的 HTML 文件。
 
 -   更加流行
 
@@ -240,18 +239,18 @@ Prefer to base the file name on the top-header level:
 
 #### 可选 wrap:inner-sentence {#option-wrap-inner-sentence}
 
-尝试将一行限制在 80 个字符以下，将长段落按照一定的逻辑分开，例如:
+尝试将一行限制在 80 个字符以下，将长段落按照以下的逻辑分开，例如:
 
--   句子: after a period `.`, question `?` or exclamation mark `!`
+-   句子: 一句话结束 `.` 之后, 问句问号 `?` 或者感叹句 `!` 之后
 
--   [clauses](http://www.oxforddictionaries.com/words/cla使用s):
-    after words like `and`, `which`, `if ... then`, commas `,`
+-   [子句 clauses](http://www.oxforddictionaries.com/words/clauses):
+    在单词 `and`, `which`, `if ... then`, 逗号 `,` 之后
 
--   large [phrases](http://www.oxforddictionaries.com/words/phrases)
+-   [短语 phrases](http://www.oxforddictionaries.com/words/phrases)
 
 一行中超过80个字符是可以接受的，但是记住长句子不适合阅读，并且在 `git diff` 中会很难看。
 
-设置你的编辑器对 Markdown 文件一行不要超过80字符以免忘记。
+设置你的文本编辑器对 Markdown 文件一行不要超过80字符，以免忘记。
 
 建议使用:
 
@@ -264,14 +263,14 @@ Prefer to base the file name on the top-header level:
 
 -   Diffs 工具看起来更好, 因为一个子句的修改在 diff 工具中显示为一行修改.
 
--   Occasional visual wrapping does not significantly reduce the readability of Markdown,
-    since the only language feature that can be indented to indicate hierarchy are nested lists.
+-   临时的换行不会降低对 Markdown 文件的可读性，
+    因为唯一的语言特性，可以缩进表示层次结构的就是嵌套列表。
 
 -   现在除了 GitHub 在 README 和评论中将单独一行解释成回车。
     没有其他主流的解释引擎这么做，使用换行是非常安全的。
 
--   一些工具对很长的一行不友好，比如 Vim 并且 `git diff` 默认并不换行.
-    这些不友好可以通过配置除去，对于git，使用 `git config --global core.pager 'less -r'` 对于Vim可以使用 `set wrap` 来自动换行.
+-   一些工具对较长的一行不友好，比如 Vim 并且 `git diff` 默认并不换行.
+    这些不友好都可以通过配置除去，对于git，使用 `git config --global core.pager 'less -r'` 对于Vim可以使用 `set wrap` 来自动换行.
 
 缺点:
 
@@ -280,7 +279,7 @@ Prefer to base the file name on the top-header level:
 -   Markdown 看起来和渲染输出不同, 输出没有换行符。
 
     手动的换行可以让 Markdown 比生成的文档更加易读，
-    which is bad beca使用 it gives a false sense of readability encouraging less readable long paragraphs.
+    当然这样做的同时，也造成了一种虚假的可读性错觉，让人感觉没有长段落。
 
 -   需要用户拥有使用可编程文本编辑器，类似 Vim，可以通过配置来换行。[EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)
 
@@ -354,7 +353,7 @@ Prefer to base the file name on the top-header level:
 
         xinetd stands for `eXtended Internet daemon`
 
--   其他和电脑相关的术语，但是想要单独标明
+-   其他和电脑相关的术语，想要单独标明
 
 不要标记为代码：
 
@@ -368,8 +367,7 @@ Prefer to base the file name on the top-header level:
 尽量选用英语，更准确的说美式英语。
 解释: 美式英语使用者占有最大的GDP，尤其是在计算机行业。
 
-使用p like URL or code on words which you do not want to add to your dictionary
-so that spell checkers can ignore them automatically.
+类似 URL 或者代码，添加代码标记，这样拼写检查程序会自动忽略。
 
 注意大小写敏感的拼写错误，尤其是项目名，品牌名，或者缩写。
 
@@ -537,9 +535,9 @@ so that spell checkers can ignore them automatically.
 
         After.
 
--   *避免* 在相同 markdown 文件中使用相同的标题.
+-   *避免* 在相同 Markdown 文件中使用相同的标题.
 
-    解释: 许多的 markdown 解释器会依据标题的内容生成标题的IDs。
+    解释: 许多的 Markdown 解释器会依据标题的内容生成标题的IDs。
 
     不建议：
 
@@ -563,34 +561,32 @@ so that spell checkers can ignore them automatically.
 
 #### 顶级标题 {#top-level-header}
 
-If you target HTML output, write your documents so that it will have one
-and only one `h1` element as the first thing in it that serves as the title of the document.
-This is the HTML top-level header.
+如果你想要 HTML 直接输出，这样唯一的 `h1` 标记就是输出的第一件事，并且会成为文档的标题。这就是HTML的顶级标题。
 
-How this `h1` is produced may vary depending on your exact technology stack:
-some stacks may generate it from metadata, for example Jekyll through the front-matter.
+`h1` 标题的产生受到使用的 Markdown 引擎的直接影响：
+一些引擎会从元数据（metadata）中产生标题，比如 Jekyll 就是从 front-matter 中产生标题。
 
-Storing the top-level header as metadata has the advantage that it can be reused elsewhere more easily,
-e.g. on a global index, but the downside lower portability portable.
+将顶级标题保存为元数据（metadata）可以更加方便的在其他地方使用，
+比如，在全局索引中，但也有缺点，比如降低了可读性和移植性。
 
-If your target stack does not generate the top-level header in another way,
+如果目的不是生成顶级标题，
 include it in your markdown file. E.g., GitHub.
 
-Top-level headers on index-like files such as `README.md` or `index.md`
-should serve as a title for their parent directory.
+索引文件中的顶级标题比如 `README.md` 或者 `index.md`
+应该作为他们父目录的标题。
 
-Downsides of top-level headers:
+顶级标题的缺点：
 
--   take up one header level. This means that there are only 5 header levels left,
-    and each new header will have one extra `#`, which looks worse and is harder to write.
+-   占用了一级标题。这就意味只剩下5个层级标题可以使用。
+    并且这样每一个新的标题就会多使用一个 `#` 符号,这样看起来不好。
 
--   duplicate filename information, which most often can already be seen on a URL.
-    In most cases, the filename can be trivially converted to a top-level,
-    e.g.: `some-filename.md` to `Some filename`.
+-   重复了文件名, 通常已经可以直接从 URL 中读到。
+    在大多数的情况下，文件名可以直接转换成顶级标题，
+    比如: 从 `some-filename.md` 到 `Some filename`.
 
-Advantages of top-level headers:
+顶级标题的优点:
 
-- more readable than URL's, especially for non-technically inclined 使用rs.
+-   比URL更加易读，尤其是对非技术出身用户。
 
 #### 标题大小写 {#header-case}
 
@@ -618,17 +614,17 @@ Advantages of top-level headers:
 
         # The Header of the Example
 
-    例外, [title case](http://en.wikipedia.org/wiki/Title_case#Title_case)
-    may be optionally 使用d for the [top-level header](#top-level-header).
-    使用 this exception sparingly, in cases where typographical perfection is important,
-    e.g.: `README` of a project.
+    例外, [首字大写](http://en.wikipedia.org/wiki/Title_case#Title_case)
+    对 [顶级标题](#top-level-header) 可选择性支持。
+    请异常谨慎地使用, in cases where typographical perfection is important,
+    比如：项目的 `README` .
 
-    解释: why not [Title case](http://en.wikipedia.org/wiki/Title_case#Title_case) for all headers?
-    It requires too much effort to decide if edge-case words should be upper case or not.
+    解释: 为什么对所有标题[首字大写](http://en.wikipedia.org/wiki/Title_case#Title_case) ?
+    如果要决定句子中每一个单词大小写会花费太多精力。
 
 #### 标题结尾 {#end-of-a-header}
 
-Indicate the end of a header's content that is not followed by a new header by an horizontal rule:
+显示标题的内容，而不是用新标题和水平线紧随其后：
 
     # Header
 
@@ -684,7 +680,7 @@ Indicate the end of a header's content that is not followed by a new header by a
 
 正由于这个原因，你可能希望在标题中用多个关键词。
 
-To do so, simply create a synonym header with empty content just before its main header.
+要做到这一点，简单的创建一个同义词标题在主标题之前，并且标题下不包含内容。
 
 比如：
 
@@ -694,8 +690,7 @@ To do so, simply create a synonym header with empty content just before its main
 
     You give money and get something in return.
 
-Every empty header with the same level as the following one is assumed to be a synonym.
-This is not the case if levels are different:
+每一个同层级的空标题都假定是同义的。如果层级不一样，那就是另外的含义：
 
     # Animals
 
@@ -729,7 +724,7 @@ This is not the case if levels are different:
         > Long line
         > that was wrapped.
 
--   *不要* 在单独的引用中使用空行.
+-   *不要* 在单独的引用中使用空行。
 
     建议使用:
 
@@ -768,16 +763,16 @@ This is not the case if levels are different:
 
 解释:
 
-- asterisk `*` can be conf使用d with bold or italic markers.
-- plus sign `+` is not popular.
+- 星号 `*` 可能和加粗和斜体符号产生混淆。
+- 加号 `+` 不流行。
 
 ##### 有序 {#ordered}
 
-尽量选用 `1.` 来标记有序的列表, unless you intend to refer to items by their number in the same markdown file or externally.
+尽量选用 `1.` 来标记有序的列表, 除非你打算通过数字在相同 Markdown 文件或者外部文件中引用他们。
 
-Prefer unordered lists unless you intent to refer to items by their number.
+尽量使用无序的列表，除非有通过数字引用的需求。
 
-Best, we will never refer to the items of this list by their number:
+最佳则是从来不通过序号来引用他们：
 
     - a
     - c
@@ -808,42 +803,41 @@ Best, we will never refer to the items of this list by their number:
     1. permissions
     2. number of files directory contains
 
-Acceptable, meant to be referred by number from outside of the markdown file:
+可接受，通过外部 markdown 文件引用:
 
-    Terms of 使用.
+    Terms of use.
 
     1. I will not do anything illegal.
     2. I will not do anything that can harm the website.
 
 解释:
 
--   If you want to change a list item in the middle of the list,
-    you 不要 have to modify all items that follow it.
+-   如果你想要改变列表中的一个列表项，你不要修改它下面的列表项。
 
-    Diffs will show only the significant line which was modified.
+    Diffs 工具只会显示被修改的重要的内容。
 
--   Content stays aligned without extra effort if the numbers reach 2 digits. 比如： the following is not aligned:
+-   如果序列有两位，也不需要额外注意，内容保持一致。 比如：下面不对齐：
 
         9. a
         10. b
 
--   References break when a new list item is added. To reduce this problem:
+-   如果新列表项被加入，引用会破坏。尽量减少这种问题：
 
-    - keep references close to the list so authors are less likely to forget to update them
-    - when referring from an external document, always refer to an specific version of the markdown file
+    - 保证引用靠近列表，这样作者会更少可能的忘记去更新
+    - 当从外部引用时，总是引用到一个固定版本的 markdown 文件
 
 #### 列表项中的空格 {#spaces-after-list-marker}
 
 ##### 可选 list-space:mixed {#option-list-space-mixed}
 
--   If the content of every item of the list is fits in a single paragraph, 使用 **1** space.
+-   如果每一个列表项的内容都只有一段，使用 **1** 个空格。
 
--   Otherwise, for every item of the list:
+-   否则，对于列表中的每一项:
 
-    -   使用 **3** spaces for unordered lists.
+    -   给无序列表使用 **3** 个空格。
 
-    -   使用 **2** spaces for ordered lists.
-        One less than for unordered beca使用 the marker is 2 chars long.
+    -   给有序列表使用 **2** 个空格。
+        比无序少一个空格，因为符号占用两个字符。
 
 不建议, 每一项一行:
 
@@ -933,26 +927,26 @@ Acceptable, meant to be referred by number from outside of the markdown file:
 
 ##### 解释: list-space mixed vs 1 {#rationale-list-space-mixed-vs-1}
 
-The advantages of `list-space:1` are that
+使用 `list-space:1` 的有点：
 
--   it removes the decision of how many spaces you should put after the list marker:
-    it is always one.
+-   它去除了你需要决定在列表符号后面放置多少空格的顾虑：
+	因为只放一个
 
-    We could choose to always have list content indented as:
+    我们也可以选择在列表项中如下缩进：
 
         -   a
         -   b
 
-    but that is ugly.
+    但是这样非常丑。
 
--   You never need to change the indentation of the entire list beca使用 of a new item.
+-   你不会因为新列表项而改变整个列表的缩进。
 
-    This may happen in `list-space:mixed` if you have:
+    但是这样的情况会发生在 `list-space:mixed` 如果你有：
 
         - a
         - b
 
-    and will add a multi-line item:
+    并且想要增加一个多段落列表项：
 
         -   a
 
@@ -962,48 +956,46 @@ The advantages of `list-space:1` are that
 
             d
 
-    Note how `a` and `b` were changed beca使用 of `c`.
+    注意， `a` 和 `b` 都因为 `c` 而改变了。
 
-The disadvantages of `list-space:1`
+使用 `list-space:1` 的缺点：
 
--   creates three indentation levels for the language:
+-   产生了三种缩进方式：
 
-    - 4 for indented code blocks
-    - 3 for ordered lists
-    - 2 for unordered lists
+    - 4 for 缩进的代码块
+    - 3 for 有序列表
+    - 2 for 无序列表
 
-    That means that you cannot easily configure your editor indent level to deal with all cases
-    when you want to change the indentation level of multiple list item lines.
+    这意味着你不能轻松的配置编辑器缩进来处理所有的情况， 当你想要改变缩进层级的时候需要调整多行。
 
--   Is not implemented consistently across editors.
+-   没有被编辑器实现。
 
-    In particular what should happen at:
+    具体来说下面的情况会发生什么:
 
         - a
 
                 code
 
-    This (2 spaces):
+    这个(2 个空格):
 
         <pre><code>  code
 
-    Or no spaces:
+    或者没有空格：
 
         <pre><code>code
 
-    Likely the original markdown said no spaces:
+    原始的 markdown 说不需要空格:
 
     > To put a code block within a list item, the code block
     > needs to be indented twice — 8 spaces or two tabs
 
-    But many implementations did otherwise.
+    但是许多第三方的实现了。
 
     CommonMark [adds the 2 spaces](http://spec.commonmark.org/0.12/#example-176).
 
 #### 列表内容的缩进 {#indentation-of-content-inside-lists}
 
-The indentation level of what comes inside list and of further list items
-必须 be the same as the first list item.
+列表中内容的缩进层级必须和第一个列表项一致：
 
 不建议：
 
@@ -1029,7 +1021,7 @@ The indentation level of what comes inside list and of further list items
 
           Content 2
 
-Good (if it matches your spaces after list marker style):
+建议(如果符合列表标记之后的空格):
 
     -   item 1
 
@@ -1049,7 +1041,7 @@ Good (if it matches your spaces after list marker style):
 
         Content 2
 
-Good (if it matches your spaces after list marker style):
+建议(如果符合列表标记之后的空格):
 
     - item 1
 
@@ -1059,8 +1051,7 @@ Good (if it matches your spaces after list marker style):
 
       Content 2
 
-避免 开始ing a list item directly with indented code blocks beca使用 that is not consistently implemented.
-[CommonMark states that](http://spec.commonmark.org/0.12/#example-176) a single space is assumed in that case:
+避免开始直接使用缩进的代码列表项，因为这样不容易实现。[CommonMark states that](http://spec.commonmark.org/0.12/#example-176) 一个单独的空格需要加入:
 
     -     code
 
@@ -1257,7 +1248,7 @@ Good (if it matches your spaces after list marker style):
     - then buy some fruit. Bad for wallet.
     - finally eat the fruit. Good for tummy.
 
-Note: nothing forbids one list item from ending in period while another in the same list does not.
+注意：没有任何理由阻止，一个列表项以句号结尾，另一个列表项没有。
 
 不建议, 多段落:
 
@@ -1297,16 +1288,15 @@ Note: nothing forbids one list item from ending in period while another in the s
 
 ### 定义列表 {#definition-lists}
 
-*避免* the definition list extension since it is not present
-in many implementations nor in CommonMark.
+*避免* 使用定义列表扩展，因为他并没有被多数实现，也没有出现在 CommonMark.
 
-Instead, 使用 either:
+相反, 使用:
 
--   formated lists:
+-   格式化列表:
 
-    - format the item be defined as either of bold, link or code
-    - separate the item from the definition with a colon and a space `:.`
-    - 不要 align definitions as it is harder to maintain and does not show on the HTML output
+    - 用加粗，链接，或者代码，格式化需要定义的内容
+    - 将内容和定义使用冒号和空格分割 `:.`
+    - 不要对齐定义，这样难以维护，并且不会显示在 HTML 输出
 
     建议使用:
 
@@ -1333,17 +1323,17 @@ Instead, 使用 either:
         - `-f`: force
         - `-r`: recursive
 
-    不建议, no colon:
+    不建议, 没有冒号:
 
         - **apple** red fruit
         - **dog** noisy animal
 
-    不建议, space between term and colon:
+    不建议, 在术语和冒号之间有空格:
 
         - **apple** : red fruit
         - **dog** : noisy animal
 
-    不建议, definitions aligned:
+    不建议, 定义对齐:
 
         - **apple**: red fruit
         - **dog**:   noisy animal
@@ -1397,55 +1387,54 @@ Instead, 使用 either:
 
 代码区块必须以一空行隔开。
 
-Prefer to end the phrase before a code block with a colon `:`.
+尽量在代码块之前使用冒号结束短语 `:`。
 
 建议使用:
 
-    使用 this code to blow up your PC:
+    use this code to blow up your PC:
 
         sudo rm -rf /
 
-不建议, no colon
+不建议, 没有冒号
 
-    使用 this code to blow up your PC
+    use this code to blow up your PC
 
         sudo rm -rf /
 
 ### 水平横线 {#horizontal-rules}
 
-*不要* 使用 horizontal rules except to indicate the [End of a header](#end-of-a-header).
+*不要* 使用水平线除非表明[End of a header](#end-of-a-header).
 
 解释:
 
--   headers are better section separators since they say what a section is about.
+-   标题比区块更好，因为标题就是区块的开始，并且说明了区块的内容。
 
--   horizontal rules 不要 have a generally accepted semantic meaning.
-    This guide gives them one.
+-   水平线没有可接受的语义。
+    这份风格指南给了语义。
 
-使用 3 hyphens without spaces:
+使用 3 个无空格连字符:
 
     ---
 
 ### 表格 {#tables}
 
-Extension.
+扩展.
 
--   Surround tables by one empty line.
+-   用一空行包围表格。
 
--   不要 indent tables.
+-   不要缩进表格。
 
--   Surround every line of the table by pipes.
+-   用 `|` 包裹表格的每一行。
 
--   Align all border pipes vertically.
+-   竖直对齐所有表格边框。
 
--   Separate header from body by hyphens except at the aligned pipes `|`.
+-   将标题和内容用连字符分割，用对齐的 `|`。
 
--   Pipes `|` 必须 be surrounded by a space, except for outer pipes
-    which only get one space internally, and pipes of the hyphen separator line.
+-   `|` 周围必须要有一个空格，除非是外部的 `|`。
 
--   Column width is determined by the longest cell in the column.
+-   列的宽度通过列中最长的单元格确定。
 
-Good table:
+建议表格:
 
     Before.
 
@@ -1458,30 +1447,25 @@ Good table:
 
 解释:
 
--   unaligned tables tables are easier to write, but aligned tables are more readable,
-    and people read code much more often than they edit it.
+-   不对齐的表格很容易书写，但是对齐的表格更加易读，并且人们读代码比编辑要更多。
 
--   preceding pipes make it easier to determine where a table 开始s and ends.
-    Trailing pipes make it look better beca使用 of symmetry.
+-   开始的 `|` 更加容易看出表格的开始和结束。结尾的 `|` 让人看起来更加舒服，因为对称。
 
--   there exist tools which help keeping the table aligned.
-    For example, Vim has the [Tabular plugin](https://github.com/godlygeek/tabular)
-    which allows to align the entire table with `:Tabular /|`.
+-   这些工具让表格对齐更加容易。比如，Vim 有 [Tabular plugin](https://github.com/godlygeek/tabular) 插件，这个插件让我们可以使用 `:Tabular /|` 来使整个表格对齐。
 
--   why no spaces around pipes of the hyphen separator line, i.e.: `|---|` instead of `| - |`?
-    No spaces looks better, works on GitHub. Downside: harder to implement automatic alignment in editors,
-    as it requires a special rule for the separator line.
+-   为什么在连字符分割行 `|` 没有空格包围, 比如: `|---|` 而不是 `| - |`?
+    没有空格看起来更好，在GitHub可行， 缺点: 编辑器中自动对齐实现困难，因为对于分割行需要特殊的规则。
 
 ### 分离相连的列表 {#separate-consecutive-elements}
 
-Separate consecutive:
+分离连续:
 
-- lists
-- indented code blocks
-- blockquotes
-- list followed by external code block
+- 列表
+- 缩进的代码块
+- 引用
+- 列表之后跟随额外的代码块
 
-with an empty HTML comment `<!-- -->`.
+使用一个空白的 HTML 注释 `<!-- -->`.
 
 <!-- -->
 
@@ -1548,9 +1532,9 @@ with an empty HTML comment `<!-- -->`.
 
 建议使用:
 
-    使用 the hyphen marker followed by one space `- a`  for unordered lists.
+    使用连字符并跟随一个空格来表示无序列表。
 
-解释: most browsers 不要 render the surrounding spaces nor add them to the clipboard on copy.
+解释: 大多数的浏览器不会生成包围的空格，或者复制的时候不会将他们添加到粘贴板。
 
 ### 链接 {#links}
 
@@ -1558,7 +1542,7 @@ with an empty HTML comment `<!-- -->`.
 
 链接:
 
--   使用 the trailing `[]` on implicit links.
+-   使用结尾的 `[]` 隐式链接：
 
     建议使用:
 
@@ -1568,10 +1552,9 @@ with an empty HTML comment `<!-- -->`.
 
         [a]
 
-    解释: while omitting `[]` works on most major implementations,
-    it is not specified in the documentation not implemented in the original markdown.
+    解释: 省略 `[]` 大多数主要的实现都可以使用，但是这种方式并没有在文档中有实现，原始 Markdown 也没有提到。
 
-Definitions:
+定义:
 
 - 必须写到文件末
 - 必须以ID字符顺序排列
@@ -1585,12 +1568,12 @@ Definitions:
     [id2]     http://long-url.com
     [long id] http://a.com        "name 1"
 
-不建议, not ordered by id:
+不建议, 没有安装 id 排序:
 
     [b] http://a.com
     [a] http://b.com
 
-不建议, not aligned:
+不建议, 没有对齐:
 
     [id] http://id.com
     [long id] http://long-id.com
@@ -1599,7 +1582,7 @@ Definitions:
 
 使用双引号，*不要* 使用单引号。
 
-解释: single quotes do not work in all major implementations, double quotes do.
+解释: 单引号并不是在所有的实现中都有效，但是双引号可以。
 
 ### 强调 {#emphasis}
 
@@ -1626,12 +1609,9 @@ Definitions:
 
 #### 强调与标题 {#emphasis-vs-headers}
 
-*不要* 使用强调元素(加粗或者斜体) to introduce a multi line named section: 使用 headers instead.
+*不要* 使用强调元素(加粗或者斜体) 来介绍多行区块: 使用标题代替.
 
-解释: that is exactly the semantic meaning of headers,
-and not necessarily that of emphasis elements. As a consequence,
-many implementations add 使用ful behaviors to headers and not to emphasis elements,
-such as automatic `id` to make it easier to refer to the header later on.
+解释: 这个就是确切的标题的语义, 使用强调的并不是必须的。作为结果，许多实现，给标题增加有用的功能，并没有给强调元素，比如自动 `id` 来更加容易的引用标题。
 
 建议使用:
 
@@ -1706,7 +1686,7 @@ such as automatic `id` to make it easier to refer to the header later on.
     <github.com>
 
 解释: 将自动链接从HTML tags区分开很困难.
-What if you want a relative link to a file called `script`?
+如果你想要一个相对的链接指向一个 `script` 的文件？
 
 #### 电子邮件自动链接 {#email-automatic-links}
 
@@ -1717,7 +1697,7 @@ What if you want a relative link to a file called `script`?
 > "performs a bit of randomized decimal and hex entity-encoding
 > to help obscure your address from address-harvesting spambots".
 
-因此, 输出是随机的，丑陋的, and as the spec itself mentions:
+因此, 输出是随机的，丑陋的, 并且像规范中提到的:
 
-> but an address published in this way will probably eventually 开始 receiving spam
+> but an address published in this way will probably eventually start receiving spam
 
