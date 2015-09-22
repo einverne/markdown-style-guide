@@ -1,6 +1,8 @@
-# Markdown Style Guide
+# Markdown 风格指南中文翻译
 
-Readable and portable Markdown style guide: <http://www.cirosantilli.com/markdown-style-guide>
+This project was forked from Readable and portable Markdown style guide: <http://www.cirosantilli.com/markdown-style-guide>
+
+Chinese version is located: <http://einverne.github.io/markdown-style-guide/zh.html>
 
 The main source file is [index.md](index.md)
 
