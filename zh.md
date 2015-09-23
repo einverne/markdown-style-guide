@@ -3,6 +3,11 @@ title: Markdown 书写风格指南
 description: 在线 Markdown 书写风格指南
 ---
 
+- a
+{:toc}
+
+## 关于 {#about}
+
 参考 [原始设计规范](http://daringfireball.net/projects/markdown/syntax),
 [CommonMark](http://commonmark.org) 和其他扩展。
 
@@ -12,11 +17,6 @@ description: 在线 Markdown 书写风格指南
 讨论将在 [GitHub issue]({{ site.github }}/issues) 展开。
 
 本文档源代码托管在 [GitHub]({{ site.github }})。
-
-- a
-{:toc}
-
-## 关于 {#about}
 
 ### 设计目标 {#design-goals}
 
@@ -106,6 +106,8 @@ The first option header that appears in this text is the default value.
     ab.
 
 ### 可供选择 {#alternatives}
+
+[Google 风格指南](https://github.com/google/styleguide/blob/3591b2e540cbcb07423e02d20eee482165776603/docguide/style.md)
 
 这份指南最初从[carwin/markdown-styleguide](https://github.com/carwin/markdown-styleguide/tree/9121c77bd177a3ade6713d50ab1228782d7c02a7) fork 得来.
 原始文档已经被大规模的改动，一些决定已经被修改，几乎已经找不到原文。
