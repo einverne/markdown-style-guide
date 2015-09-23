@@ -3,6 +3,13 @@ title: Markdown Style Guide
 description: Readable and portable Markdown style guide.
 ---
 
+- a
+{:toc}
+
+## About
+
+The [source code is available on GitHub]({{ site.github }}).
+
 Considers [original specification](http://daringfireball.net/projects/markdown/syntax),
 [CommonMark](http://commonmark.org) and other extensions.
 
@@ -10,12 +17,7 @@ This project is community driven, and tries to reach consensus.
 Maintainers will only step in if the community cannot reach a decision.
 Discussion will take place [on the issue tracker]({{ site.github }}/issues).
 
-The [source code is available on GitHub]({{ site.github }}).
-
-- a
-{:toc}
-
-## About
+A Chinese translation can be found at: <http://einverne.github.io/markdown-style-guide/zh.html>
 
 ### Design goals
 
@@ -108,11 +110,14 @@ space, `ab`:
 
 ### Alternatives
 
-This guide was originally forked from [carwin/markdown-styleguide](https://github.com/carwin/markdown-styleguide/tree/9121c77bd177a3ade6713d50ab1228782d7c02a7).
-It has been extended considerably, some decisions were modified, and no original lines remain.
+[google/styleguide](https://github.com/google/styleguide/blob/3591b2e540cbcb07423e02d20eee482165776603/docguide/style.md)
+by Google.
 
-Miguel de Icaza (GNOME, Mono) has proposed a short style guide at:
-<http://tirania.org/blog/archive/2014/Sep-30.html>
+[carwin/markdown-styleguide](https://github.com/carwin/markdown-styleguide/tree/9121c77bd177a3ade6713d50ab1228782d7c02a7).
+This guide was originally forked from it. It has been extended considerably,
+some decisions were modified, and no original lines remain.
+
+<http://tirania.org/blog/archive/2014/Sep-30.html> by Miguel de Icaza (GNOME, Mono). Short.
 
 ### Lint tools
 
@@ -587,7 +592,7 @@ How this `h1` is produced may vary depending on your exact technology stack:
 some stacks may generate it from metadata, for example Jekyll through the front-matter.
 
 Storing the top-level header as metadata has the advantage that it can be reused elsewhere more easily,
-e.g. on a global index, but the downside lower portability portable.
+e.g. on a global index, but the downside of lower portability.
 
 If your target stack does not generate the top-level header in another way,
 include it in your markdown file. E.g., GitHub.
@@ -1745,3 +1750,5 @@ Rationale: the original markdown specification states it:
 Therefore, the output is random, ugly, and as the spec itself mentions:
 
 > but an address published in this way will probably eventually start receiving spam
+
+{% include_relative LICENSE.md %}
